@@ -15,7 +15,9 @@
 - ROM
 * Non volatile
 * Store BIOS (Modern BIOS => UEFI)
-* BIOS = software that helps initialize the hardware in our PC and get our OS up and running
+* BIOS = low-level software that
+=> helps initialize computer's hardware in our PC and get our OS up and running
+=> run a process called POST (Power On Self Test) to run diagnotic test to make sure the computer is in proper working order
 
 - CMOS battery
 * basic BIOS data about booting your PC (date, time, how you want to start)
@@ -64,3 +66,52 @@
 
 - Peripheral
 * External devices that we connect to the PC, eg. Mouse, keyboard, monitor
+
+# Operating System (OS)
+### SSH (Secure Shell)
+* Not a remote server but just a software that constantly checking whether there is client connect to it
+* Public Key VS Private Key
+- A set of keys that can only perform either unlock or lock. eg. Public key can only lock but cannot unlock
+
+### VPN (Virtual Private Network)
+* More sophiscated SSH with a lot more setup
+* Allow us to connect to a private network over the internet
+
+### Components
+* Kernel (Communicating with the hardware, user don't communicate with it)
+=> Process Manager (Allocate the resources to run the process)
+=> Memory Manager
+  - We don't load all the data to RAM at once, but to store it in Virtual Memory (allocated space = swap space)
+  - We only load the part of the data that is currently running to RAM
+=> File Manager (Windows: NTFS => REFS; Mac: APFS, Linux: ext4)
+=> I/O Manager
+  - Maintain input and output
+  - load up driver
+  - handle communication between the devices
+
+* User Space (The part that user communicate with)
+=> Everything that Outside of Kernel
+
+### Boot Process
+* Power On => BIOS/UEFI (Including POST) => Boot Device (Bootloader) => OS => Kernel (System Processes + User Space)
+
+### Examples:
+* Windows
+* Mac OS
+* Linux
+=> Debian
+=> Ubuntu
+=> Red Hat
+* Android OS
+* Chrome OS
+
+# Networking
+### Unicast VS Multicast VS Broadcast
+- Done by looking at the special bit (i.e. first octet of a destination addr) in the destination MAC Address
+- Example:
+  * Unicast: For just one receiving address
+  * Multicast: For >1 receiving address
+  * Broadcast: To every instances in the LAN Network
+
+### References
+- [TCP-IP 5 layer model](https://microchipdeveloper.com/tcpip:tcp-ip-five-layer-model)
